@@ -1,0 +1,27 @@
+set backspace=indent,eol,start
+au GUIEnter * simalt ~x " maximize on startup
+set hlsearch " Switch on search pattern highlighting.
+set ttimeoutlen=10
+let mapleader = "\<Space>"
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
+vmap <Leader>y "+y
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+
+""""""""""""""""""""""""""""
+" THESE DONT WORK IN VSVIM "
+""""""""""""""""""""""""""""
+" syntax on
+" set expandtab tabstop=2
+" set smartindent
+" match ErrorMsg '\%>80v.\+'
+" set number "line numbers
+" set ch=3    " Height of command line
+" set mousehide " Hide the mouse when typing text
+" set foldignore=
+" set foldmethod=indent
+" set cursorline
+" set shiftwidth=0
