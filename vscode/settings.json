@@ -1,0 +1,8 @@
+{
+  "window.zoomLevel": 0,
+  "workbench.statusBar.visible": true,
+  "workbench.editor.showTabs": true,
+  "workbench.sideBar.location": "right",
+  "vim.disableExtension": false,
+  "vim.foldfix": true
+}
