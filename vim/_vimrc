@@ -10,6 +10,25 @@ set backspace=indent,eol,start
 set expandtab tabstop=2
 set shiftwidth=0
 
+" Naughty Dog standards
+if $NDIBIN == "c:/ndibin"
+  set shiftwidth=4
+  set softtabstop=4
+  set tabstop=4
+  set encoding=utf-8
+
+  let g:maxd_NDGame = $GAMENAME
+  let g:maxd_NDBranch = $GAMEBRANCH
+  let g:maxd_NDPath = 'c:\perforce\' . g:maxd_NDBranch
+  let &path = ""
+  let &path .= ',' . g:maxd_NDPath . '\shared\src\'
+  let &path .= ',' . g:maxd_NDPath . '\shared\src\**'
+  let &path .= ',' . g:maxd_NDPath . '\' . g:maxd_NDGame . '\src\'
+  let &path .= ',' . g:maxd_NDPath . '\' . g:maxd_NDGame . '\src\**'
+
+  exec ":cd " . g:maxd_NDPath
+endif
+
 " folding options: group by indentation, ignore comments
 set foldmethod=indent
 set foldignore=
