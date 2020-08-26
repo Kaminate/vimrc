@@ -95,3 +95,14 @@ let g:netrw_bufsettings = 'noma nomod nu nowrap ro nobl'
 
 " ignore annoying ^M carriage returns ( /r/n )
 match Ignore /\r$/
+
+" fk it
+set syntax=c
+
+" avoid seeing annoying .swps in explorer/netrw. Note that you need to create
+" C:\Users\Nate\.vim\_backups
+" C:\Users\Nate\.vim\_swaps
+set backup                    " keep a backup file
+set backupdir=~/.vim/_backups " store backups here
+set directory=~/.vim/_swaps   " store swap files here
+
