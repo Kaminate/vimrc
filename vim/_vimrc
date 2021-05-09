@@ -10,25 +10,6 @@ set backspace=indent,eol,start
 set expandtab tabstop=2
 set shiftwidth=0
 
-" Naughty Dog standards
-if $NDIBIN == "c:/ndibin"
-  set shiftwidth=4
-  set softtabstop=4
-  set tabstop=4
-  set encoding=utf-8
-
-  let g:maxd_NDGame = $GAMENAME
-  let g:maxd_NDBranch = $GAMEBRANCH
-  let g:maxd_NDPath = 'c:\perforce\' . g:maxd_NDBranch
-  let &path = ""
-  let &path .= ',' . g:maxd_NDPath . '\shared\src\'
-  let &path .= ',' . g:maxd_NDPath . '\shared\src\**'
-  let &path .= ',' . g:maxd_NDPath . '\' . g:maxd_NDGame . '\src\'
-  let &path .= ',' . g:maxd_NDPath . '\' . g:maxd_NDGame . '\src\**'
-
-  exec ":cd " . g:maxd_NDPath
-endif
-
 " folding options: group by indentation, ignore comments
 set foldmethod=indent
 set foldignore=
@@ -96,13 +77,17 @@ let g:netrw_bufsettings = 'noma nomod nu nowrap ro nobl'
 " ignore annoying ^M carriage returns ( /r/n )
 match Ignore /\r$/
 
-" fk it
+" set unknown filetypes to read with c
 set syntax=c
 
-" avoid seeing annoying .swps in explorer/netrw. Note that you need to create
+" stomp over some existing filetypes to read with c instead
+autocmd BufNewFile,BufRead *.hlsl,*.fx set syntax=c
+
+
+" https://stackoverflow.com/questions/21010029/hiding-swp-files-in-the-default-vim-file-browser
+" Note that you need to create
 " C:\Users\Nate\.vim\_backups
 " C:\Users\Nate\.vim\_swaps
 set backup                    " keep a backup file
 set backupdir=~/.vim/_backups " store backups here
 set directory=~/.vim/_swaps   " store swap files here
-
