@@ -89,5 +89,7 @@ autocmd BufNewFile,BufRead *.hlsl,*.fx set syntax=c
 " C:\Users\Nate\.vim\_backups
 " C:\Users\Nate\.vim\_swaps
 set backup                    " keep a backup file
+set nobackup                  " but like... dont?
 set backupdir=~/.vim/_backups " store backups here
 set directory=~/.vim/_swaps   " store swap files here
+

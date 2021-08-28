@@ -26,3 +26,9 @@ with your vim installation. Make sure to use \\ as a path separator
 Place in `C:\Users\Nate\AppData\Roaming\Sublime Text 3\Packages\User\`
 
 
+## Vim plugins
+
+# YouCompleteMe
+theres a README.md which has build instructions
+also need to install python3 ( run >python3 from command prompt to install from microsoft store )
+also need to install go programming language

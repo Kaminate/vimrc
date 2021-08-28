@@ -1,4 +1,5 @@
-settings.json
+
+settings.json // "C:\Users\Nate\AppData\Roaming\Code\User\settings.json"
   // https://github.com/VSCodeVim/Vim
   // When you're over a fold and press down ( hjkl ),
   // it opens the fold instead of skipping over it.
