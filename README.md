@@ -18,6 +18,15 @@ _vimrc and _vsvimrc can go in your user root, ie: c:\users\nate
 vim uses _vimrc, and  
 vsvim uses _vsvimrc  
 
+## configuration
+
+Create a _vimrc file in your home directory
+> cd /d %USERPROFILE%
+
+And point it towards the _vimrc in your source control
+> echo source C:\Users\n473\Documents\GitHub\vimrc\_vimrc > _vimrc
+
+
 ## vimalways.reg
 
 When you run this file, it adds registry entries such that  

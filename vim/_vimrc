@@ -84,6 +84,21 @@ set syntax=c
 " actually dont do this, we have syntax\hlsl.vim and ftdetect\hlsl.vim
 " autocmd BufNewFile,BufRead *.hlsl,*.fx set syntax=c
 
+" https://metarl.atlassian.net/wiki/spaces/PROG/pages/2003895912
+if $RAD_PROJECT_DIR != ""
+  set tags=_local/tags/tags;/ 
+  set runtimepath^=$RAD_PROJECT_DIR\scripts\vim
+  set runtimepath+=$RAD_PROJECT_DIR\scripts\vim\after 
+  " colorscheme rad 
+
+  nnoremap <F4> :call EditRelatedFile()<CR>
+
+  nnoremap <leader>f /\c
+
+  " perforce short cuts
+  nnoremap <leader>a :silent !start p4 add %<CR>
+endif
+
 
 " https://stackoverflow.com/questions/21010029/hiding-swp-files-in-the-default-vim-file-browser
 " Note that you need to create
