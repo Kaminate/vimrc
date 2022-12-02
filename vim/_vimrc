@@ -1,24 +1,35 @@
+"  __  _  _  _ ___ __    _   _  _ __ __ ___  ___ 
+" |  \| || || |_  |__`. | \ / || |  V  | _ \/ _/ 
+" | | ' |`._  _/ / |_ | `\ V /'| | \_/ | v / \__ 
+" |_|\__|   |_|_/ |__.'   \_/  |_|_| |_|_|_\\__/ 
+"
+"                  2018-2023
+
+" --------------------------------------------------------------------
+"                            Text Editing
+" --------------------------------------------------------------------
+
+set encoding=utf-8      " The encoding displayed.
+set fileencoding=utf-8  " The encoding written to file.
+set wrap                " enable word wrap
+set smartindent
+set backspace=indent,eol,start " idk man but everyone should have this
+set expandtab tabstop=2
+set shiftwidth=0
+set foldmethod=indent " folding option: group by indentation
+set foldignore=       " folding option: ignore comments
+
 " --------------------------------------------------------------------
 "                                GUI
 " --------------------------------------------------------------------
 
-" add recursive search
-set path+=**
+set path+=**  " add recursive search
 
 " match ErrorMsg '\%>80v.\+'
-set ch=3    " Height of command line
-set number "line numbers
+set ch=3      " Height of command line
+set number    "line numbers
 set mousehide " Hide the mouse when typing text
-set smartindent
-set backspace=indent,eol,start
-set expandtab tabstop=2
-set shiftwidth=0
-
-" folding options: group by indentation, ignore comments
-set foldmethod=indent
-set foldignore=
-
-set cursorline " ???
+set cursorline " highlight line containing cursor
 
 if has('gui_running')
   set guioptions-=m  "remove menu bar
@@ -29,7 +40,7 @@ if has('gui_running')
     " better than Inconsolata, liberation mono (this is what sublime uses)
     set guifont=Consolas:h12
     colorscheme molokai
-    au GUIEnter * simalt ~x " maximize on startup
+    " au GUIEnter * simalt ~x " maximize on startup
   elseif has('gui_macvim')
     set guifont=Menlo\ Regular:h15
   endif
@@ -42,7 +53,6 @@ syntax on "enable syntax highlighting
 set noerrorbells visualbell t_vb=       " disable annoying beeps
 autocmd GUIEnter * set visualbell t_vb= " disable annoying boops
 
-set wrap " enable word wrap
 
 set ttimeoutlen=10 " something like duration before executing hotkeys idk
 
@@ -126,6 +136,6 @@ set directory=~/.vim/_swaps                    " Store swap files here
 
 
 " --------------------------------------------------------------------
-"                            End
+"                            The End
 " --------------------------------------------------------------------
 
