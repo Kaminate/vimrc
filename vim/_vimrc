@@ -55,6 +55,7 @@ autocmd GUIEnter * set visualbell t_vb= " disable annoying boops
 
 
 set ttimeoutlen=10 " something like duration before executing hotkeys idk
+set autoread "auto load file when changed on disk (ie checking out p4)
 
 
 " --------------------------------------------------------------------
