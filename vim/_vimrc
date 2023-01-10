@@ -29,7 +29,8 @@ set path+=**  " add recursive search
 set ch=3      " Height of command line
 set number    "line numbers
 set mousehide " Hide the mouse when typing text
-set cursorline " highlight line containing cursor
+
+
 
 if has('gui_running')
   set guioptions-=m  "remove menu bar
@@ -44,7 +45,17 @@ if has('gui_running')
   elseif has('gui_macvim')
     set guifont=Menlo\ Regular:h15
   endif
+  set cursorline " highlight line containing cursor
 else
+  " better colorscheme for vimrc in windows terminal?
+  colorscheme dim
+
+  " dont highlight the entire line in red, instead just bold the line number?
+  set cursorline
+  set cursorlineopt=number
+  autocmd ColorScheme * highlight CursorLineNr cterm=bold term=bold gui=bold
+
+
 endif
 
 set hlsearch " Switch on search pattern highlighting.
@@ -103,7 +114,8 @@ let g:netrw_bufsettings = 'noma nomod nu nowrap ro nobl'
 match Ignore /\r$/
 
 " set unknown filetypes to read with c
-set syntax=c
+" set syntax=c
+" this should not conflict with reading .vim files..
 
 " stomp over some existing filetypes to read with c instead
 " actually dont do this, we have syntax\hlsl.vim and ftdetect\hlsl.vim
