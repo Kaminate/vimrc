@@ -46,6 +46,7 @@ if has('gui_running')
     set guifont=Menlo\ Regular:h15
   endif
   set cursorline " highlight line containing cursor
+
 else
   " better colorscheme for vimrc in windows terminal?
   colorscheme dim
@@ -89,8 +90,10 @@ vmap <Leader>P "+P
 nnoremap <Leader>q :q<CR>
 nnoremap <leader>f /\c
 
-" https://github.com/derekmcloughlin/gvimfullscreen_win32/tree/master
-map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
+if has('gui_running')
+  " https://github.com/derekmcloughlin/gvimfullscreen_win32/tree/master
+  map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
+endif
 
 " --------------------------------------------------------------------
 "                            Auto-completion
