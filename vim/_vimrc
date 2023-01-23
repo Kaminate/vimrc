@@ -1,92 +1,75 @@
-"  __  _  _  _ ___ __    _   _  _ __ __ ___  ___ 
-" |  \| || || |_  |__`. | \ / || |  V  | _ \/ _/ 
-" | | ' |`._  _/ / |_ | `\ V /'| | \_/ | v / \__ 
-" |_|\__|   |_|_/ |__.'   \_/  |_|_| |_|_|_\\__/ 
+"                           __  _  _  _ ___ __    _   _  _ __ __ ___  ___ 
+"                          |  \| || || |_  |__`. | \ / || |  V  | _ \/ _/ 
+"                          | | ' |`._  _/ / |_ | `\ V /'| | \_/ | v / \__ 
+"                          |_|\__|   |_|_/ |__.'   \_/  |_|_| |_|_|_\\__/ 
+"   
+"                                           2018-2023
 "
-"                  2018-2023
+" --------------------------------------------------------------------------------------------------
+"                                           Text Editing
+" --------------------------------------------------------------------------------------------------
 
-" --------------------------------------------------------------------
-"                            Text Editing
-" --------------------------------------------------------------------
-
-set encoding=utf-8      " The encoding displayed.
-set fileencoding=utf-8  " The encoding written to file.
-set wrap                " enable word wrap
-set smartindent
+set encoding=utf-8             " The encoding displayed.
+set fileencoding=utf-8         " The encoding written to file.
+set wrap                       " enable word wrap
+set smartindent                " syntax-aware indentation
 set backspace=indent,eol,start " idk man but everyone should have this
-set expandtab tabstop=2
-set shiftwidth=0
-set foldmethod=indent " folding option: group by indentation
-set foldignore=       " folding option: ignore comments
+set expandtab tabstop=2        " convert 1 tab = 2 spaces
+set shiftwidth=0               " (0 = use tabstop) # of spaces to insert with shift >
+set foldmethod=indent          " folding option: group by indentation
+set foldignore=                " folding option: ignore comments
 
-" --------------------------------------------------------------------
-"                                GUI
-" --------------------------------------------------------------------
+" --------------------------------------------------------------------------------------------------
+"                                               GUI
+" --------------------------------------------------------------------------------------------------
 
-set path+=**  " add recursive search
+set path+=**                   " recursive search
+set colorcolumn=100            " show vertical line at column 100
+set ch=3                       " Height of command line
+set number                     " show line numbers
+set mousehide                  " Hide the mouse when typing text
 
-" match ErrorMsg '\%>80v.\+'
-set ch=3      " Height of command line
-set number    "line numbers
-set mousehide " Hide the mouse when typing text
-
-
+colorscheme molokai            " colorscheme
+set cursorline                 " highlight line containing cursor
 
 if has('gui_running')
-  set guioptions-=m  "remove menu bar
-  set guioptions-=T  "remove toolbar
-  set guioptions-=r  "remove scrollbar
-  set guioptions-=L  "remove scrollbar
+  set guioptions-=m            " remove menu bar
+  set guioptions-=T            " remove toolbar
+  set guioptions-=r            " remove scrollbar
+  set guioptions-=L            " remove scrollbar
   if has('gui_win32')
-    " better than Inconsolata, liberation mono (this is what sublime uses)
-    set guifont=Consolas:h12
-    colorscheme molokai
+    set guifont=Consolas:h12 " better than Inconsolata, liberation mono (sublime text font)
     " au GUIEnter * simalt ~x " maximize on startup
   elseif has('gui_macvim')
     set guifont=Menlo\ Regular:h15
   endif
-  set cursorline " highlight line containing cursor
-
 else
-  " better colorscheme for vimrc in windows terminal?
-  colorscheme dim
-
-  " dont highlight the entire line in red, instead just bold the line number?
-  set cursorline
-  set cursorlineopt=number
-  autocmd ColorScheme * highlight CursorLineNr cterm=bold term=bold gui=bold
-
-
+  set t_Co=256                 " Set terminal option to use 256 colors
+  set termguicolors            " Use 24 bit colors, Requires a ISO-8613-3 compatible terminal.
 endif
 
-set hlsearch " Switch on search pattern highlighting.
-syntax on "enable syntax highlighting
+set hlsearch                   " Switch on search pattern highlighting.
+syntax on                      " enable syntax highlighting
 
 set noerrorbells visualbell t_vb=       " disable annoying beeps
 autocmd GUIEnter * set visualbell t_vb= " disable annoying boops
 
 
-set ttimeoutlen=10 " something like duration before executing hotkeys idk
-set autoread "auto load file when changed on disk (ie checking out p4)
+set ttimeoutlen=10             " something like duration before executing hotkeys idk
+set autoread                    "auto load file when changed on disk (ie checking out p4)
 
 
-" --------------------------------------------------------------------
-"                              Hotkeys
-" --------------------------------------------------------------------
+" --------------------------------------------------------------------------------------------------
+"                                             Hotkeys
+" --------------------------------------------------------------------------------------------------
 
 let mapleader = "\<Space>"
-nnoremap <Leader>w :w<CR>
-
-" copy from clipboard
 vmap <Leader>y "+y
-
-" paste from clipboard
 nmap <Leader>p "+p
 nmap <Leader>P "+P
 vmap <Leader>p "+p
 vmap <Leader>P "+P
-
-" find (case insensitive)
+nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <leader>f /\c
 
@@ -95,9 +78,9 @@ if has('gui_running')
   map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
 endif
 
-" --------------------------------------------------------------------
-"                            Auto-completion
-" --------------------------------------------------------------------
+" --------------------------------------------------------------------------------------------------
+"                                        Auto-completion
+" --------------------------------------------------------------------------------------------------
 
 "Use TAB to complete when typing words, else inserts TABs as usual.
 function! Tab_Or_Complete()
@@ -107,19 +90,16 @@ function! Tab_Or_Complete()
     return "\<Tab>"
   endif
 endfunction
-:inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
-:set dictionary="/usr/dict/words"
+inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
+set dictionary="/usr/dict/words"
 
-" show line numbers during :Explore
-let g:netrw_bufsettings = 'noma nomod nu nowrap ro nobl'
+let g:netrw_bufsettings = 'noma nomod nu nowrap ro nobl' " show line numbers during :Explore
 
-" ignore annoying ^M carriage returns ( /r/n )
-match Ignore /\r$/
+match Ignore /\r$/ " ignore annoying ^M carriage returns ( /r/n )
 
 " set unknown filetypes to read with c
 " set syntax=c
 " this should not conflict with reading .vim files..
-
 " stomp over some existing filetypes to read with c instead
 " actually dont do this, we have syntax\hlsl.vim and ftdetect\hlsl.vim
 " autocmd BufNewFile,BufRead *.hlsl,*.fx set syntax=c
@@ -129,29 +109,28 @@ if $RAD_PROJECT_DIR != ""
   set tags=_local/tags/tags;/ 
   set runtimepath^=$RAD_PROJECT_DIR\scripts\vim
   set runtimepath+=$RAD_PROJECT_DIR\scripts\vim\after 
-  " colorscheme rad 
-
   nnoremap <F4> :call EditRelatedFile()<CR>
 
   " perforce short cuts
   nnoremap <leader>a :silent !start p4 add %<CR>
 endif
 
-" --------------------------------------------------------------------
-"                            Backups
-" --------------------------------------------------------------------
+" --------------------------------------------------------------------------------------------------
+"                                            Backups
+" --------------------------------------------------------------------------------------------------
 
 " Store autogenerated .swp files and backups somewhere other than
 " next to their original files
+" todo: the mkdir doesn't actually work?
 set backup                                     " Keep a backup file
-silent !mkdir ~/.vim          > /dev/null 2>&1 " Create backup folder,
-silent !mkdir ~/.vim/_backups > /dev/null 2>&1 "   failing silently
-silent !mkdir ~/.vim/_swaps   > /dev/null 2>&1 "   if it already exists
+silent !mkdir ~/.vim          > /dev/null 2>&1 " Create backup folder fail silently
+silent !mkdir ~/.vim/_backups > /dev/null 2>&1 "
+silent !mkdir ~/.vim/_swaps   > /dev/null 2>&1 "
 set backupdir=~/.vim/_backups                  " Store backups here
 set directory=~/.vim/_swaps                    " Store swap files here
 
 
-" --------------------------------------------------------------------
-"                            The End
-" --------------------------------------------------------------------
+" --------------------------------------------------------------------------------------------------
+"                                           The End
+" --------------------------------------------------------------------------------------------------
 
