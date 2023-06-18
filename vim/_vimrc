@@ -39,7 +39,6 @@ if has('gui_running')
   set guioptions-=L            " remove scrollbar
   if has('gui_win32')
     set guifont=Consolas:h12 " better than Inconsolata, liberation mono (sublime text font)
-    " au GUIEnter * simalt ~x " maximize on startup
   elseif has('gui_macvim')
     set guifont=Menlo\ Regular:h15
   endif
@@ -83,14 +82,15 @@ endif
 " --------------------------------------------------------------------------------------------------
 
 "Use TAB to complete when typing words, else inserts TABs as usual.
-function! Tab_Or_Complete()
-  if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
-    return "\<C-N>"
-  else
-    return "\<Tab>"
-  endif
-endfunction
-inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
+"function! Tab_Or_Complete()
+"  if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
+"    return "\<C-N>"
+"  else
+"    return "\<Tab>"
+"  endif
+"endfunction
+"inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
+
 set dictionary="/usr/dict/words"
 
 let g:netrw_bufsettings = 'noma nomod nu nowrap ro nobl' " show line numbers during :Explore
