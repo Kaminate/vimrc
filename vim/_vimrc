@@ -9,6 +9,53 @@
 "                                           Text Editing
 " --------------------------------------------------------------------------------------------------
 
+
+echo "==== hello world ===="
+    " try to source the molokai color scheme?
+    "let cwd = getcwd()
+    "set rtp+=&cwd " runtime path
+    "set rtp+=expand(getcwd())
+
+
+
+    " "set" is for assigning a "value" to an "option" (see :help set-args)
+    " "let" is for assigning a "expression" to a "variable". (see :help set-args)
+    "
+    " rtp is a "option"
+    " "set option" it turns the option on
+    " "set option?" prints the option value
+    "
+    " set rtp              " prints the value of runtimepath
+    " set rtp?             " prints the value of runtimepath
+    " set rtp=asdf         " sets runtimepath=asdf
+    " set rtp=asdf\ fdsa   " sets runtimepath=asdf fdsa ('\' is an escape char)
+    " set rtp=asdf  fdsa   " E518: unknown option: fdsa
+    " let &rtp='asdf fdsa' " sets runtimepath=asdf fdsa
+    "                        note that the '&' here turns rtp into a variable
+    "                        whose value is the option's value
+    " let rtp='foobar'     " sets the variable rtp (not the option rtp) to foobar
+    " let rtp              " prints foobar
+    " let &rtp             " invalid expression &rtp
+    " set &rtp             " unknown option &rtp
+    " let &rtp=getcwd()    " sets runtimepath=~\Documents\Github\tac or whatever
+    " 
+    "                        append a comma, then append the cwd.
+    "                        (rtp is a comma separated list)
+    "                        (`.=` is string append, and `.` is string concat)
+    " let &rtp.=','.getcwd() " append a comma, then append the cwd.
+    "                        ^ i dont think this works, its the cwd
+    "                          of the file youre trying to edit, not
+    "                          the directory of the sourced _vimrc file
+    "
+    "                                append a comma, then append the path
+    "                                of the sourced file
+    " let &rtp.=','.expand('%:p:h') 
+    "                         ^ same error as above
+
+    let &rtp.=','.expand('<sfile>:h') 
+
+echo "==== goodbye world ===="
+
 set encoding=utf-8             " The encoding displayed.
 set fileencoding=utf-8         " The encoding written to file.
 set wrap                       " enable word wrap
