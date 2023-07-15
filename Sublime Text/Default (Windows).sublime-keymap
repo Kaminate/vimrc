@@ -1,12 +1,22 @@
 [
-  { "keys": ["ctrl+w"],
-    "command": "delete_word",
-    "args": { "forward": false,
-              "sub_words": true}},
+  // ------------------------------------------
+  //           Mimic vim keybindings
+  // ------------------------------------------
 
-  { "keys": ["ctrl+tab"],
-    "command": "next_view" },
+  // mimic vim's ctrl-w to delete last word i_CTRL-W
+  { "keys": ["ctrl+w"], "command": "delete_word", "args": { "forward": false, "sub_words": true}},
 
-  { "keys": ["ctrl+shift+tab"],
-    "command": "prev_view" }
+  // mimic vim's ctrl-d to scroll. Vim defaults to half a screen, but
+  // sublime needs a hardcoded number.
+  { "keys": ["ctrl+d"], "command": "scroll_lines", "args": {"amount": -15.0 } },
+  { "keys": ["ctrl+u"], "command": "scroll_lines", "args": {"amount": 15.0 } },
+
+  // ------------------------------------------
+  //                   Tabs
+  // ------------------------------------------
+
+  // make ctrl tab not use the stack
+  { "keys": ["ctrl+tab"], "command": "next_view" },
+  { "keys": ["ctrl+shift+tab"], "command": "prev_view" },
+
 ]
