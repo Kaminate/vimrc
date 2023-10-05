@@ -2,7 +2,12 @@
   "tab_size": 2,
   "translate_tabs_to_spaces": true,
 	"font_size": 28,
-	"ignored_packages":
-	[
-	]
+
+  // enable vim by not ignoring the vim package
+	"ignored_packages": [],
+
+  "theme": "auto",
+	"auto_complete_include_snippets": false,
+	"update_check": false, // disable auto update
 }
+
