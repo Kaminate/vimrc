@@ -188,6 +188,14 @@ if !isdirectory($HOME . "/.vim/_swaps")
     call mkdir($HOME . "/.vim/_swaps", "p", 0700)
 endif
 
+
+
+" --------------------------------------------------------------------------------------------------
+
+au BufNewFile,BufRead,BufReadPost *.clang-format set syntax=yaml
+au BufNewFile,BufRead,BufReadPost *.USF set syntax=hlsl
+au BufNewFile,BufRead,BufReadPost *.uplugin set syntax=json
+
 " --------------------------------------------------------------------------------------------------
 "                                           The End
 " --------------------------------------------------------------------------------------------------
