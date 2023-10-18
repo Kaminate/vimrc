@@ -1,3 +1,18 @@
+"               +---------------------------+
+"               | _vsvimrc for VsVim plugin |
+"               +---------------------------+
+"
+" To use, create a _vsvimrc in the home directory, and source this file
+" Example:
+"
+"   [ C:\Users\Nate\_vsvimrc ]-------------------------------+
+"   |                                                        |
+"   | so E:\Users\Nate\Documents\Github\vimrc\vsvim\_vsvimrc |
+"   |                                                        |
+"   +--------------------------------------------------------+
+"
+"
+
 set backspace=indent,eol,start
 au GUIEnter * simalt ~x " maximize on startup
 set hlsearch " Switch on search pattern highlighting.
@@ -11,9 +26,16 @@ nmap <Leader>P "+P
 vmap <Leader>p "+p
 vmap <Leader>P "+P
 
-""""""""""""""""""""""""""""
-" THESE DONT WORK IN VSVIM "
-""""""""""""""""""""""""""""
+" why is this here?
+set nohlsearch
+
+" define a macro to add newlines between comma separated arguments?
+let @q='0f,lr<CR>j'
+
+"---------------------------
+" These dont work in vsvim
+"---------------------------
+
 " syntax on
 " set expandtab tabstop=2
 " set smartindent
