@@ -20,6 +20,7 @@ set ttimeoutlen=10
 let mapleader = "\<Space>"
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
+nnoremap <Leader>f /\c
 vmap <Leader>y "+y
 nmap <Leader>p "+p
 nmap <Leader>P "+P
