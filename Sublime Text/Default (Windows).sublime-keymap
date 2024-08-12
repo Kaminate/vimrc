@@ -19,4 +19,10 @@
   { "keys": ["ctrl+tab"], "command": "next_view" },
   { "keys": ["ctrl+shift+tab"], "command": "prev_view" },
 
+  // hack to make new tabs use c++ syntax
+  { "keys": ["ctrl+n"],
+    "command": "new_file",
+    "args": { "syntax": "Packages/C++/C++.sublime-syntax" },
+  },
+
 ]
