@@ -39,9 +39,7 @@ with your vim installation. Make sure to use \\ as a path separator
 
 ## Sublime Text
 
-`Default (Windows).sublime-keymap`
-`Preferences.sublime-settings`
-Place in `C:\Users\Nate\AppData\Roaming\Sublime Text 3\Packages\User\`
+See Sublime Text/README.md
 
 
 ## Vim plugins
