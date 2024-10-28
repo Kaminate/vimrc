@@ -33,9 +33,16 @@ set nohlsearch
 " define a macro to add newlines between comma separated arguments?
 let @q='0f,lr<CR>j'
 
+
 "---------------------------
 " These dont work in vsvim
 "---------------------------
+
+" | Make it so that navigating with {} doesnt open folds(?)
+" | https://github.com/VsVim/VsVim/issues/2864
+" v
+" set foldopen="quickfix,search,tag,undo"
+" set foldopen-=block
 
 " syntax on
 " set expandtab tabstop=2
