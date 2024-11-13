@@ -159,8 +159,12 @@ match Ignore /\r$/ " ignore annoying ^M carriage returns ( /r/n )
 " actually dont do this, we have syntax\hlsl.vim and ftdetect\hlsl.vim
 " autocmd BufNewFile,BufRead *.hlsl,*.fx set syntax=c
 
-" https://metarl.atlassian.net/wiki/spaces/PROG/pages/2003895912
+" --------------------------------------------------------------------------------------------------
+"                                        Studio Overrides
+" --------------------------------------------------------------------------------------------------
+
 if $RAD_PROJECT_DIR != ""
+  " https://metarl.atlassian.net/wiki/spaces/PROG/pages/2003895912
   set tags=_local/tags/tags;/ 
   set runtimepath^=$RAD_PROJECT_DIR\scripts\vim
   set runtimepath+=$RAD_PROJECT_DIR\scripts\vim\after 
@@ -168,6 +172,23 @@ if $RAD_PROJECT_DIR != ""
 
   " perforce short cuts
   nnoremap <leader>a :silent !start p4 add %<CR>
+endif
+
+" --------------------------------------------------------------------------------------------------
+
+if $VECTORWORKS != ""
+
+  " | Actually I'm not sure any of this was useful, because what was really happening
+  " | was that in visual studio, adaptive formatting was enabled
+  " | (Tools -> Options -> Text Editor -> Advanced -> Use adaptive formatting)
+  " | and the file i was in had a mixture of spaces and tabs, which confused the adaptive
+  " | formatting into overriding my tabs with spaces
+  " v
+  set noexpandtab  " When pressing tab key, insert tab character instead of spaces
+  set tabstop=4    " convert 1 tab = 4 spaces
+  set shiftwidth=4 " idk the difference between tabstop and shiftwidth
+  " ^
+
 endif
 
 " --------------------------------------------------------------------------------------------------
