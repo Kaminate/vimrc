@@ -3,4 +3,4 @@ REGEDIT4
 @="vim"
 [HKEY_CLASSES_ROOT\Unknown\shell\vim]
 [HKEY_CLASSES_ROOT\Unknown\shell\vim\command]
-@="\"C:\\Program Files (x86)\\Vim\\vim90\\gvim.exe\" \"%1\""
+@="\"D:\\Program Files (x86)\\Vim\\vim91\\gvim.exe\" \"%1\""

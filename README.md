@@ -1,31 +1,13 @@
 # Vimrc
 
-colors\molokai.vim
-  specifies a color theme  
-  It should be put in your vim \colors next to the others  
 
-ftdetect\hlsl.vim 
-syntax\hlsl.vim
-  do this too
+## configuration
+
+Copy the vimrc/vim/.vimrc file to your home directory C:/users/kamin
 
 gvimfullscreen.dll
   place this next to gvim.exe
   _vimrc maps f11 to activate it
-
-
-
-_vimrc and _vsvimrc can go in your user root, ie: c:\users\nate
-vim uses _vimrc, and  
-vsvim uses _vsvimrc  
-
-## configuration
-
-Create a _vimrc file in your home directory
-> cd /d %USERPROFILE%
-
-And point it towards the _vimrc in your source control
-> echo source C:\Users\n473\Documents\GitHub\vimrc\_vimrc > _vimrc
-
 
 ## vimalways.reg
 
