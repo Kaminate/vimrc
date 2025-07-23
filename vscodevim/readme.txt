@@ -7,6 +7,7 @@ settings.json // "C:\Users\Nate\AppData\Roaming\Code\User\settings.json"
   vim.foldfix: true
  
 keybindings.json
+  Place in C:\Users\kamin\AppData\Roaming\Code\User
 
   if you cant find it, just edit a keybinding.
     1. (ctrl shift p) open preferences
