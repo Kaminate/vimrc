@@ -4,5 +4,9 @@
   "workbench.editor.showTabs": "multiple",
   "workbench.sideBar.location": "left",
   "vim.disableExtension": false,
-  "vim.foldfix": true
+  "vim.foldfix": true,
+  "vim.handleKeys":
+  {
+    "<C-f>": false
+  }
 }
