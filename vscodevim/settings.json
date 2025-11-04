@@ -5,6 +5,7 @@
   "workbench.sideBar.location": "left",
   "vim.disableExtension": false,
   "vim.foldfix": true,
+  "editor.colorDecorators": false,
   "vim.handleKeys":
   {
     "<C-f>": false
